@@ -9,6 +9,8 @@ export const env = createEnv({
     PORT: z.coerce.number().default(4321),
     PG_URL: z.url(),
     REDIS_URL: z.url(),
+    JWT_SECRET: z.string(),
+    HASH_SECRET: z.string(),
   },
 
   /**
