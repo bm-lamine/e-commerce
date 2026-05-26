@@ -3,10 +3,19 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "dev": "bun --watch src/server.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.8.0",
+    "@t3-oss/env-core": "^0.13.11",
+    "hono": "^4.12.23",
+    "zod": "^4.4.3"
   }
 }
