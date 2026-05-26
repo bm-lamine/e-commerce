@@ -7,13 +7,15 @@ export const env = createEnv({
       .enum(["development", "production", "test"])
       .default("development"),
     PORT: z.coerce.number().default(4321),
+    PG_URL: z.url(),
+    REDIS_URL: z.url(),
   },
 
   /**
    * What object holds the environment variables at runtime. This is usually
    * `process.env` or `import.meta.env`.
    */
-  runtimeEnv: Bun.env,
+  runtimeEnv: process.env,
 
   /**
    * By default, this library will feed the environment variables directly to

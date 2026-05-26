@@ -22,7 +22,8 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "paths": {
-      "~/*": ["./src/*"],
+      "src/*": ["./src/*"],
+      "drizzle/*": ["./drizzle/*"],
     },
 
     // Some stricter flags (disabled by default)

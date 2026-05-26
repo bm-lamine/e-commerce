@@ -1,6 +1,6 @@
 import { showRoutes } from "hono/dev";
-import app from "~/app";
-import { env } from "~/config/env";
+import app from "src/app";
+import { env } from "src/config/env";
 
 if (env.NODE_ENV !== "production") showRoutes(app);
 

@@ -1,8 +1,8 @@
 import { zValidator } from "@hono/zod-validator";
 import type { ValidationTargets } from "hono";
 import type { ZodType } from "zod";
-import formatError from "~/utils/format-error";
-import STATUS_CODE from "~/utils/status-code";
+import formatError from "src/utils/format-error";
+import STATUS_CODE from "src/utils/status-code";
 
 export default function <
   T extends ZodType,
