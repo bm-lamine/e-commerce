@@ -10,5 +10,10 @@ export const loginSchema = z.object({
   password: z.string().trim(),
 });
 
+export const refreshTokenSchema = z.object({
+  refreshToken: z.string().trim(),
+});
+
 export type RegisterJson = z.infer<typeof registerSchema>;
 export type LoginJson = z.infer<typeof loginSchema>;
+export type RefreshTokenJson = z.infer<typeof refreshTokenSchema>;

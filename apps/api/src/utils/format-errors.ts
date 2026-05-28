@@ -1,4 +1,4 @@
-function formatError<T extends FormatErrorParams>(
+export default function formatErrors<T extends FormatErrorParams>(
   passed: T[],
 ): FormatErrorOutput {
   return {
@@ -24,5 +24,3 @@ type FormatErrorOutput = {
     pathString: string;
   }[];
 };
-
-export default formatError;
