@@ -1,12 +1,17 @@
 import { retrieveCache } from "src/utils/retrieve-cache";
 import { cacheUser, USER_EMAIL } from "./users.cache";
 import { insertUser, queryUserByEmail } from "./users.repository";
-import { selectUserSchema, type CreateUserJson } from "./users.schema";
+import {
+  public_user_schema,
+  select_user_schema,
+  type CreateUserJson,
+  type User,
+} from "./users.schema";
 
 export async function findUserByEmail(email: string) {
   const cached = await retrieveCache({
     key: USER_EMAIL(email),
-    schema: selectUserSchema,
+    schema: select_user_schema,
     del: false,
   });
   if (cached) return cached;
@@ -22,4 +27,8 @@ export async function createUser(data: CreateUserJson) {
   const user = await insertUser(data);
   cacheUser(user);
   return user;
+}
+
+export function getPublicUserFields(user: User) {
+  return public_user_schema.parse(user);
 }

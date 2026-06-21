@@ -1,6 +1,6 @@
 import { redis } from "src/config/redis";
+import { hashJwt, signJwt } from "src/lib/jwt";
 import { ACCESS_TTL, REFRESH_TTL, USER_SID } from "./auth.cache";
-import { hashJwt, signJwt } from "./jwt/jwt.service";
 
 export async function generateTokens(userId: string) {
   const [accessToken, refreshToken] = await Promise.allSettled([
@@ -48,14 +48,6 @@ export async function refreshTokens({
     .exec();
 
   return { accessToken, refreshToken };
-}
-
-export async function hashPassword(plain: string) {
-  return await Bun.password.hash(plain, "argon2id");
-}
-
-export async function comparePassword(plain: string, hash: string) {
-  return await Bun.password.verify(plain, hash, "argon2id");
 }
 
 export type RefreshTokensParams = {
